@@ -23,3 +23,4 @@ rootProject.name = "FormFlow"
 
 include(":formflow-compose")
 include(":formflow-core")
+include(":sample-compose")

@@ -13,3 +13,74 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+
+# =========================
+# Gradle
+# =========================
+.gradle/
+build/
+**/build/
+
+# Gradle wrapper (keep JAR, ignore others)
+!gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties.bak
+
+# =========================
+# Android
+# =========================
+*.apk
+*.aab
+*.dex
+*.class
+bin/
+gen/
+out/
+captures/
+
+# =========================
+# Kotlin
+# =========================
+*.kotlin_metadata
+*.kotlin_module
+
+# =========================
+# IntelliJ / Android Studio
+# =========================
+.idea/
+*.ipr
+*.iws
+.idea/caches/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/compiler.xml
+.idea/workspace.xml
+
+# =========================
+# macOS
+# =========================
+.AppleDouble
+.LSOverride
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Tests / coverage
+# =========================
+coverage/
+*.exec
+
+# =========================
+# Compose previews
+# =========================
+.compose/
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
