@@ -14,14 +14,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
+          cache: gradle
 
-      - name: Gradle cache
-        uses: gradle/actions/setup-gradle@v3
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v4
 
-      - name: Build + tests
-        run: ./gradlew clean build
+      - name: Build & Test
+        run: ./gradlew clean build --no-daemon
+
+      - name: API Check
+        run: ./gradlew apiCheck --no-daemon
