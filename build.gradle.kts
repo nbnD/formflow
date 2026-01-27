@@ -36,6 +36,11 @@ configurations.all {
     resolutionStrategy {
         force("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
     }
-}
 
+}
+apiValidation {
+    ignoredProjects += listOf(
+        "sample-compose"
+    )
+}
 
