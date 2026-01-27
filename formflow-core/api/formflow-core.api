@@ -1,0 +1,292 @@
+public final class com/flutterjunction/formflow/core/AnyFieldState {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZZLjava/util/List;Ljava/util/List;Ljava/util/Set;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-AI-z_4c ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Object;
+	public final fun component3 ()Ljava/lang/Object;
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Z
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Ljava/util/Set;
+	public final fun copy-XD6KpKo (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZZLjava/util/List;Ljava/util/List;Ljava/util/Set;)Lcom/flutterjunction/formflow/core/AnyFieldState;
+	public static synthetic fun copy-XD6KpKo$default (Lcom/flutterjunction/formflow/core/AnyFieldState;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZZLjava/util/List;Ljava/util/List;Ljava/util/Set;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/AnyFieldState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClientErrors ()Ljava/util/List;
+	public final fun getDirty ()Z
+	public final fun getFocusedOnce ()Z
+	public final fun getHasError ()Z
+	public final fun getInitial ()Ljava/lang/Object;
+	public final fun getKey-AI-z_4c ()Ljava/lang/String;
+	public final fun getServerErrors ()Ljava/util/List;
+	public final fun getTouched ()Z
+	public final fun getValidateOn ()Ljava/util/Set;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public final fun isValid ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/flutterjunction/formflow/core/FieldHandle {
+	public abstract fun blur ()V
+	public abstract fun clearErrors (ZZ)V
+	public abstract fun focus ()V
+	public abstract fun getKey-AI-z_4c ()Ljava/lang/String;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun reset (Z)V
+	public abstract fun set (Ljava/lang/Object;Z)V
+	public abstract fun validate (Z)V
+}
+
+public final class com/flutterjunction/formflow/core/FieldHandle$DefaultImpls {
+	public static synthetic fun clearErrors$default (Lcom/flutterjunction/formflow/core/FieldHandle;ZZILjava/lang/Object;)V
+	public static synthetic fun reset$default (Lcom/flutterjunction/formflow/core/FieldHandle;ZILjava/lang/Object;)V
+	public static synthetic fun set$default (Lcom/flutterjunction/formflow/core/FieldHandle;Ljava/lang/Object;ZILjava/lang/Object;)V
+	public static synthetic fun validate$default (Lcom/flutterjunction/formflow/core/FieldHandle;ZILjava/lang/Object;)V
+}
+
+public final class com/flutterjunction/formflow/core/FieldKey {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/flutterjunction/formflow/core/FieldKey;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FieldKeyKt {
+	public static final fun key (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FieldState {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZLjava/util/List;Ljava/util/List;Ljava/util/Set;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-AI-z_4c ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/Object;
+	public final fun component3 ()Ljava/lang/Object;
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/Set;
+	public final fun copy-567Qr1k (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZLjava/util/List;Ljava/util/List;Ljava/util/Set;)Lcom/flutterjunction/formflow/core/FieldState;
+	public static synthetic fun copy-567Qr1k$default (Lcom/flutterjunction/formflow/core/FieldState;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;ZZLjava/util/List;Ljava/util/List;Ljava/util/Set;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/FieldState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClientErrors ()Ljava/util/List;
+	public final fun getDirty ()Z
+	public final fun getFocusedOnce ()Z
+	public final fun getHasError ()Z
+	public final fun getInitial ()Ljava/lang/Object;
+	public final fun getKey-AI-z_4c ()Ljava/lang/String;
+	public final fun getServerErrors ()Ljava/util/List;
+	public final fun getTouched ()Z
+	public final fun getValidateOn ()Ljava/util/Set;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public final fun isValid ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/flutterjunction/formflow/core/FormController {
+	public abstract fun applyRemoteErrors (Ljava/util/List;Z)V
+	public abstract fun blur-0VmdxNw (Ljava/lang/String;)V
+	public abstract fun clearRemoteErrors ()V
+	public abstract fun field-0VmdxNw (Ljava/lang/String;)Lcom/flutterjunction/formflow/core/FieldHandle;
+	public abstract fun focus-0VmdxNw (Ljava/lang/String;)V
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun registerField-xNJG-_U (Ljava/lang/String;Ljava/lang/Object;Ljava/util/Set;Ljava/util/List;)Lcom/flutterjunction/formflow/core/FieldHandle;
+	public abstract fun setValue-AiJI0do (Ljava/lang/String;Ljava/lang/Object;Z)V
+	public abstract fun submit (Lcom/flutterjunction/formflow/core/SubmitPolicy;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun validateAll (Z)Z
+	public abstract fun validateField-9ku74U8 (Ljava/lang/String;Z)V
+}
+
+public final class com/flutterjunction/formflow/core/FormController$DefaultImpls {
+	public static synthetic fun applyRemoteErrors$default (Lcom/flutterjunction/formflow/core/FormController;Ljava/util/List;ZILjava/lang/Object;)V
+	public static synthetic fun registerField-xNJG-_U$default (Lcom/flutterjunction/formflow/core/FormController;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Set;Ljava/util/List;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/FieldHandle;
+	public static synthetic fun setValue-AiJI0do$default (Lcom/flutterjunction/formflow/core/FormController;Ljava/lang/String;Ljava/lang/Object;ZILjava/lang/Object;)V
+	public static synthetic fun submit$default (Lcom/flutterjunction/formflow/core/FormController;Lcom/flutterjunction/formflow/core/SubmitPolicy;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun validateAll$default (Lcom/flutterjunction/formflow/core/FormController;ZILjava/lang/Object;)Z
+	public static synthetic fun validateField-9ku74U8$default (Lcom/flutterjunction/formflow/core/FormController;Ljava/lang/String;ZILjava/lang/Object;)V
+}
+
+public final class com/flutterjunction/formflow/core/FormFlowKt {
+	public static final fun createFormController (Lkotlinx/coroutines/CoroutineScope;)Lcom/flutterjunction/formflow/core/FormController;
+	public static synthetic fun createFormController$default (Lkotlinx/coroutines/CoroutineScope;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/FormController;
+}
+
+public final class com/flutterjunction/formflow/core/FormState {
+	public fun <init> (Lcom/flutterjunction/formflow/core/FormStatus;ZLjava/util/List;Ljava/util/Map;)V
+	public final fun component1 ()Lcom/flutterjunction/formflow/core/FormStatus;
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/Map;
+	public final fun copy (Lcom/flutterjunction/formflow/core/FormStatus;ZLjava/util/List;Ljava/util/Map;)Lcom/flutterjunction/formflow/core/FormState;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/FormState;Lcom/flutterjunction/formflow/core/FormStatus;ZLjava/util/List;Ljava/util/Map;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/FormState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanSubmit ()Z
+	public final fun getFields ()Ljava/util/Map;
+	public final fun getGlobalErrors ()Ljava/util/List;
+	public final fun getStatus ()Lcom/flutterjunction/formflow/core/FormStatus;
+	public final fun getSubmittedOnce ()Z
+	public fun hashCode ()I
+	public final fun isDirty ()Z
+	public final fun isValid ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/flutterjunction/formflow/core/FormStatus {
+}
+
+public final class com/flutterjunction/formflow/core/FormStatus$Failure : com/flutterjunction/formflow/core/FormStatus {
+	public static final field INSTANCE Lcom/flutterjunction/formflow/core/FormStatus$Failure;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FormStatus$Idle : com/flutterjunction/formflow/core/FormStatus {
+	public static final field INSTANCE Lcom/flutterjunction/formflow/core/FormStatus$Idle;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FormStatus$Submitting : com/flutterjunction/formflow/core/FormStatus {
+	public static final field INSTANCE Lcom/flutterjunction/formflow/core/FormStatus$Submitting;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FormStatus$Success : com/flutterjunction/formflow/core/FormStatus {
+	public static final field INSTANCE Lcom/flutterjunction/formflow/core/FormStatus$Success;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/FormStatus$Validating : com/flutterjunction/formflow/core/FormStatus {
+	public static final field INSTANCE Lcom/flutterjunction/formflow/core/FormStatus$Validating;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/flutterjunction/formflow/core/RemoteError {
+}
+
+public final class com/flutterjunction/formflow/core/RemoteError$Field : com/flutterjunction/formflow/core/RemoteError {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-AI-z_4c ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy-AiJI0do (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/flutterjunction/formflow/core/RemoteError$Field;
+	public static synthetic fun copy-AiJI0do$default (Lcom/flutterjunction/formflow/core/RemoteError$Field;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/RemoteError$Field;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getKey-AI-z_4c ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/RemoteError$Global : com/flutterjunction/formflow/core/RemoteError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/flutterjunction/formflow/core/RemoteError$Global;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/RemoteError$Global;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/RemoteError$Global;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/SubmitPolicy : java/lang/Enum {
+	public static final field CancelPrevious Lcom/flutterjunction/formflow/core/SubmitPolicy;
+	public static final field IgnoreIfSubmitting Lcom/flutterjunction/formflow/core/SubmitPolicy;
+	public static final field QueueLatestBroadcast Lcom/flutterjunction/formflow/core/SubmitPolicy;
+	public static final field QueueLatestDrop Lcom/flutterjunction/formflow/core/SubmitPolicy;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/flutterjunction/formflow/core/SubmitPolicy;
+	public static fun values ()[Lcom/flutterjunction/formflow/core/SubmitPolicy;
+}
+
+public abstract class com/flutterjunction/formflow/core/SubmitResult {
+}
+
+public final class com/flutterjunction/formflow/core/SubmitResult$Ok : com/flutterjunction/formflow/core/SubmitResult {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;)Lcom/flutterjunction/formflow/core/SubmitResult$Ok;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/SubmitResult$Ok;Ljava/lang/Object;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/SubmitResult$Ok;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/SubmitResult$Rejected : com/flutterjunction/formflow/core/SubmitResult {
+	public fun <init> (Ljava/util/List;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lcom/flutterjunction/formflow/core/SubmitResult$Rejected;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/SubmitResult$Rejected;Ljava/util/List;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/SubmitResult$Rejected;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getErrors ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/ValidateOn : java/lang/Enum {
+	public static final field Blur Lcom/flutterjunction/formflow/core/ValidateOn;
+	public static final field Change Lcom/flutterjunction/formflow/core/ValidateOn;
+	public static final field Submit Lcom/flutterjunction/formflow/core/ValidateOn;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/flutterjunction/formflow/core/ValidateOn;
+	public static fun values ()[Lcom/flutterjunction/formflow/core/ValidateOn;
+}
+
+public final class com/flutterjunction/formflow/core/ValidationContext {
+	public fun <init> (Lcom/flutterjunction/formflow/core/ValuesSnapshot;Z)V
+	public final fun component1 ()Lcom/flutterjunction/formflow/core/ValuesSnapshot;
+	public final fun component2 ()Z
+	public final fun copy (Lcom/flutterjunction/formflow/core/ValuesSnapshot;Z)Lcom/flutterjunction/formflow/core/ValidationContext;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/ValidationContext;Lcom/flutterjunction/formflow/core/ValuesSnapshot;ZILjava/lang/Object;)Lcom/flutterjunction/formflow/core/ValidationContext;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValues ()Lcom/flutterjunction/formflow/core/ValuesSnapshot;
+	public fun hashCode ()I
+	public final fun isSubmitAttempt ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/core/ValidationError {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/flutterjunction/formflow/core/ValidationError;
+	public static synthetic fun copy$default (Lcom/flutterjunction/formflow/core/ValidationError;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flutterjunction/formflow/core/ValidationError;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/flutterjunction/formflow/core/Validator {
+	public abstract fun validate (Ljava/lang/Object;Lcom/flutterjunction/formflow/core/ValidationContext;)Ljava/util/List;
+}
+
+public abstract interface class com/flutterjunction/formflow/core/ValuesSnapshot {
+	public abstract fun asMap ()Ljava/util/Map;
+	public abstract fun get-0VmdxNw (Ljava/lang/String;)Ljava/lang/Object;
+}
+
