@@ -1,123 +1,49 @@
 # FormFlow
 
-Predictable, explicit form state & submission for Jetpack Compose.
+**FormFlow** is a **deterministic, coroutine-first form state engine** for Kotlin, designed to handle real-world forms: validation, server errors, concurrent submits, and UI focus/blur — **without turning your ViewModel into spaghetti**.
 
-FormFlow helps you build **correct, user-friendly forms** without fighting
-validation timing, server errors, focus management, or duplicate submits.
+It works on **pure Kotlin core**, with a **Jetpack Compose adapter** on top.
 
 ---
 
 ## Why FormFlow?
 
-Jetpack Compose makes UI simple — **forms are still painful**.
+Most form implementations break down when you need to handle:
 
-Most real apps struggle with:
+- Client + server validation together
+- Concurrent submits (double-clicks, retries)
+- “Latest submit wins” vs “queue everything”
+- Clearing errors at the *right* time (not too early, not too late)
+- Focus / blur driven validation
 
-- ❌ Validation firing too early (errors on screen load)
-- ❌ Blur vs submit validation inconsistencies
-- ❌ Mapping backend errors back to fields
-- ❌ Clearing server errors when users edit
-- ❌ Preventing duplicate submits
-- ❌ Focus & keyboard UX (Next / Done)
-
-FormFlow solves these problems **explicitly**, without magic.
+FormFlow solves these **explicitly**, not accidentally.
 
 ---
 
-## What FormFlow gives you
+## Key Ideas
 
-- Typed field handles (`FieldHandle<T>`)
-- Explicit validation triggers (`Change`, `Blur`, `Submit`)
-- Clear separation of client vs server errors
-- Submission orchestration with policies
-- UI-agnostic core
-- Thin, optional Jetpack Compose adapter
-- Fully testable behaviour
+### 1. Fields are first-class
+Each field has:
+- value
+- client errors
+- server errors
+- touched / focused state
 
-No reflection.  
-No code generation.  
-No hidden lifecycle coupling.
+No magic strings. No implicit coupling.
 
 ---
 
-
-
-## Example
+### 2. Client vs Server errors are separate
+FormFlow **never mixes them**.
 
 ```kotlin
-val form = rememberFormController(scope)
-
-val email = form.registerField(
-    key = FieldKey("email"),
-    initial = "",
-    validators = listOf(
-        Validator { v, _ ->
-            if (v.isBlank()) listOf(ValidationError("Email required"))
-            else emptyList()
-        }
-    )
+FieldState(
+  clientErrors = listOf(...),
+  serverErrors = listOf(...)
 )
-
-val emailState by email.collectState()
-
-TextField(
-    value = emailState.value,
-    onValueChange = email.onChange(),
-    isError = emailState.hasError
-)
-
 ```
+## API stability
 
-## Modules
-
-| Module           | Purpose                  |
-| ---------------- | ------------------------ |
-| formflow-core    | UI-agnostic engine       |
-| formflow-compose | Compose bindings         |
-| sample-compose   | Reference implementation |
-
-- `:formflow-core` — pure Kotlin form engine (no Android/Compose)
-- `:formflow-compose` — thin Jetpack Compose adapters
-- `:sample-compose` - sample project
-
-
-## Design principles
-
-- No hidden state
-
-- No reflection
-
-- No code generation
-
-- No lifecycle coupling
-
-- Predictable, testable behaviour
-
-
-## Why not ViewModel + mutableStateOf?
-
-You can — until you need:
-
-- consistent validation timing
-
-- server error mapping
-
-- duplicate submit protection
-
-- focus-aware UX
-
-- testable submission behaviour
-
-FormFlow provides structure without forcing architecture.
-
-## Status
-
-🚧 Alpha
-
-## Core behaviour is stable
-
-- API may evolve based on feedback
-
-- Compose ergonomics actively improving
-
-
+- `formflow-core` is the stable contract.
+- Implementation types are internal.
+- Until 1.0, breaking changes may happen between minor versions.
