@@ -1,0 +1,21 @@
+public final class com/flutterjunction/formflow/compose/ErrorUiKt {
+	public static final fun displayError (Lcom/flutterjunction/formflow/core/FieldState;)Ljava/lang/String;
+}
+
+public final class com/flutterjunction/formflow/compose/FieldCollectKt {
+	public static final fun collectState (Lcom/flutterjunction/formflow/core/FieldHandle;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+}
+
+public final class com/flutterjunction/formflow/compose/FocusBindingKt {
+	public static final fun formFieldFocus (Landroidx/compose/ui/Modifier;Lcom/flutterjunction/formflow/core/FieldHandle;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/flutterjunction/formflow/compose/RememberFormControllerKt {
+	public static final fun rememberFormController (Lkotlinx/coroutines/CoroutineScope;Landroidx/compose/runtime/Composer;I)Lcom/flutterjunction/formflow/core/FormController;
+}
+
+public final class com/flutterjunction/formflow/compose/TextFieldBindingKt {
+	public static final fun onChange (Lcom/flutterjunction/formflow/core/FieldHandle;Z)Lkotlin/jvm/functions/Function1;
+	public static synthetic fun onChange$default (Lcom/flutterjunction/formflow/core/FieldHandle;ZILjava/lang/Object;)Lkotlin/jvm/functions/Function1;
+}
+
