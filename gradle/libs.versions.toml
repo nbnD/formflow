@@ -1,7 +1,8 @@
 [versions]
 # Build tools
 agp = "8.10.1"
-kotlin = "2.2.20"
+
+kotlin = "2.1.0"
 
 # Android SDK
 minSdk = "23"
@@ -17,6 +18,7 @@ appcompat = "1.7.1"
 material = "1.13.0"
 compose = "1.6.8"
 composeCompiler = "1.5.14"
+kotlinxBinaryValidator = "0.14.0"
 
 # Testing
 junit = "4.13.2"
@@ -33,6 +35,7 @@ activityCompose = "1.12.2"
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library     = { id = "com.android.library",     version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-binary-compatibility = {id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "kotlinxBinaryValidator" }
 
 # Kotlin
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

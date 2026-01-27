@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.kotlinx.binary.compatibility)
 }
 allprojects {
     group = "com.flutterjunction.formflow"
@@ -22,4 +23,19 @@ subprojects {
         }
     }
 }
+
+// TODO: Upgrade to Kotlin 2.2.x once binary-compatibility-validator
+// supports newer Kotlin metadata
+
+buildscript {
+    dependencies {
+        classpath("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
+    }
+}
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
+    }
+}
+
 
