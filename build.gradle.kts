@@ -43,4 +43,8 @@ apiValidation {
         "sample-compose"
     )
 }
+allprojects {
+    group = "com.github.nbnD"
+    version = "v0.1.0-alpha"
+}
 

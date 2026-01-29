@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("maven-publish")
 }
 
 android {
@@ -28,6 +29,16 @@ android {
         }
     }
 
+    afterEvaluate {
+        publishing {
+            publications {
+                create<MavenPublication>("release") {
+                    from(components["release"])
+                    artifactId = "formflow-compose"
+                }
+            }
+        }
+    }
 
 }
 
@@ -47,6 +58,5 @@ dependencies {
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
-    testImplementation(libs.junit)
 
 }
