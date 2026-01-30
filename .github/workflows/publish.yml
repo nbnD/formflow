@@ -21,10 +21,10 @@ jobs:
       - name: Build + API check
         run: ./gradlew clean build apiCheck --no-daemon
 
-      - name: Publish
+      - name: Publish to Sonatype (close + release)
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
-        run: ./gradlew publish --no-daemon
+        run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --no-daemon

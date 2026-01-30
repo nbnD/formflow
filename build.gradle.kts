@@ -6,12 +6,14 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlinx.binary.compatibility)
+    alias(libs.plugins.gradle.nexus.publish)
+
 }
 
 allprojects {
     // Maven Central coordinates (namespace verified)
     group = "com.flutterjunction.formflow"
-    version = "0.1.2-alpha"
+    version = "0.1.3-alpha"
 }
 
 subprojects {
@@ -43,4 +45,18 @@ configurations.all {
 
 apiValidation {
     ignoredProjects += listOf("sample-compose")
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(
+                uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            )
+
+            username.set(System.getenv("OSSRH_USERNAME"))
+            password.set(System.getenv("OSSRH_PASSWORD"))
+        }
+    }
 }
