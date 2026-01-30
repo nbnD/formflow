@@ -50,7 +50,18 @@ publishing {
         }
     }
 }
+afterEvaluate {
+    signing {
+        val key = System.getenv("SIGNING_KEY")
+        val pass = System.getenv("SIGNING_PASSWORD")
 
+        require(!key.isNullOrBlank()) { "SIGNING_KEY env var missing" }
+        require(!pass.isNullOrBlank()) { "SIGNING_PASSWORD env var missing" }
+
+        useInMemoryPgpKeys(key, pass)
+        sign(publishing.publications["release"])
+    }
+}
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
     testImplementation(kotlin("test"))

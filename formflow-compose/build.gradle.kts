@@ -45,7 +45,14 @@ android {
     }
 
 }
-
+signing {
+    val key = System.getenv("SIGNING_KEY")
+    val pass = System.getenv("SIGNING_PASSWORD")
+    if (!key.isNullOrBlank() && !pass.isNullOrBlank()) {
+        useInMemoryPgpKeys(key, pass)
+    }
+    sign(publishing.publications)
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
