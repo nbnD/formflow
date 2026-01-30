@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("maven-publish")
+    signing
 }
 
 android {
@@ -35,6 +36,9 @@ android {
                 create<MavenPublication>("release") {
                     from(components["release"])
                     artifactId = "formflow-compose"
+                    groupId = "com.flutterjunction.formflow"
+                    version = project.version.toString()
+
                 }
             }
         }
