@@ -6,14 +6,14 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlinx.binary.compatibility)
-    alias(libs.plugins.gradle.nexus.publish)
+    alias(libs.plugins.vanniktech.maven.publish)
 
 }
 
 allprojects {
     // Maven Central coordinates (namespace verified)
     group = "com.flutterjunction.formflow"
-    version = "0.1.3-alpha"
+    version = "0.1.4-alpha"
 }
 
 subprojects {
@@ -47,16 +47,34 @@ apiValidation {
     ignoredProjects += listOf("sample-compose")
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(
-                uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-            )
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
 
-            username.set(System.getenv("OSSRH_USERNAME"))
-            password.set(System.getenv("OSSRH_PASSWORD"))
+    coordinates(
+        groupId = "com.flutterjunction.formflow",
+        artifactId = "formflow-core",
+        version = project.version.toString()
+    )
+
+    pom {
+        name.set("FormFlow Core")
+        description.set("UI-agnostic form state, validation, and submission engine.")
+        url.set("https://github.com/nbnD/formflow")
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        scm {
+            url.set("https://github.com/nbnD/formflow")
+        }
+        developers {
+            developer {
+                id.set("nbnD")
+                name.set("Nabin Dhakal")
+            }
         }
     }
 }

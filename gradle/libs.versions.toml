@@ -29,10 +29,10 @@ material3Android = "1.4.0"
 compose-bom = "2024.10.00"
 lifecycleRuntimeKtx = "2.10.0"
 activityCompose = "1.12.2"
-nexusPublish = "2.0.0"
+vanniktechPublish = "0.29.0"
 
 [plugins]
-gradle-nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPublish" }
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechPublish" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library     = { id = "com.android.library",     version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

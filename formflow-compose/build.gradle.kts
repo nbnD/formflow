@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("maven-publish")
     signing
+    alias(libs.plugins.vanniktech.maven.publish)
 }
 
 android {
@@ -56,7 +57,35 @@ signing {
         logger.lifecycle("Signing disabled: SIGNING_KEY/SIGNING_PASSWORD not provided.")
     }
 }
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
 
+    coordinates(
+        groupId = "com.flutterjunction.formflow",
+        artifactId = "formflow-compose",
+        version = project.version.toString()
+    )
+
+    pom {
+        name.set("FormFlow Compose")
+        description.set("Jetpack Compose adapters for FormFlow.")
+        url.set("https://github.com/nbnD/formflow")
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        scm { url.set("https://github.com/nbnD/formflow") }
+        developers {
+            developer {
+                id.set("nbnD")
+                name.set("Nabin Khanal")
+            }
+        }
+    }
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)

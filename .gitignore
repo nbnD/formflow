@@ -13,7 +13,9 @@
 .externalNativeBuild
 .cxx
 local.properties
-
+signing-key.asc
+*.gpg
+*.asc
 
 # =========================
 # Gradle

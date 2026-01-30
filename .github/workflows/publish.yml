@@ -1,4 +1,4 @@
-name: Publish to Maven Central
+name: Publish to Maven Central (Central Portal)
 
 on:
   push:
@@ -21,10 +21,10 @@ jobs:
       - name: Build + API check
         run: ./gradlew clean build apiCheck --no-daemon
 
-      - name: Publish to Sonatype (close + release)
+      - name: Publish (Central Portal)
         env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
-        run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository --no-daemon
+        run: ./gradlew publishAllPublicationsToMavenCentralRepository --no-daemon
