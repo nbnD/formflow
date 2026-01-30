@@ -13,9 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
-# Gradle secrets (DO NOT COMMIT)
-gradle.properties
-**/gradle.properties
+
 
 # =========================
 # Gradle
