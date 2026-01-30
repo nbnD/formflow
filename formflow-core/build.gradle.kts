@@ -31,15 +31,15 @@ publishing {
 
                 licenses {
                     license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
+                        name.set("Apache License")
+                        url.set("http://www.apache.org/licenses/")
                     }
                 }
 
                 developers {
                     developer {
                         id.set("nbnD")
-                        name.set("Rakshya Khanal")
+                        name.set("Nabin Dhakal")
                     }
                 }
 
