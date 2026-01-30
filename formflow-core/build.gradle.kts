@@ -55,12 +55,15 @@ afterEvaluate {
         val key = System.getenv("SIGNING_KEY")
         val pass = System.getenv("SIGNING_PASSWORD")
 
-        require(!key.isNullOrBlank()) { "SIGNING_KEY env var missing" }
-        require(!pass.isNullOrBlank()) { "SIGNING_PASSWORD env var missing" }
-
-        useInMemoryPgpKeys(key, pass)
-        sign(publishing.publications["release"])
+        if (!key.isNullOrBlank() && !pass.isNullOrBlank()) {
+            useInMemoryPgpKeys(key, pass)
+            sign(publishing.publications["release"])
+        } else {
+            // CI/builds without publishing shouldn't fail
+            logger.lifecycle("Signing disabled: SIGNING_KEY/SIGNING_PASSWORD not provided.")
+        }
     }
+
 }
 dependencies {
     implementation(libs.kotlinx.coroutines.core)
