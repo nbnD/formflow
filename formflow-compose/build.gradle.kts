@@ -1,9 +1,9 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("maven-publish")
-    signing
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
@@ -31,38 +31,16 @@ android {
         }
     }
 
-    afterEvaluate {
-        publishing {
-            publications {
-                create<MavenPublication>("release") {
-                    from(components["release"])
-                    artifactId = "formflow-compose"
-                    groupId = "com.flutterjunction.formflow"
-                    version = project.version.toString()
-
-                }
-            }
-        }
-    }
 
 }
-signing {
-    val key = System.getenv("SIGNING_KEY")
-    val pass = System.getenv("SIGNING_PASSWORD")
 
-    if (!key.isNullOrBlank() && !pass.isNullOrBlank()) {
-        useInMemoryPgpKeys(key, pass)
-        sign(publishing.publications)
-    } else {
-        logger.lifecycle("Signing disabled: SIGNING_KEY/SIGNING_PASSWORD not provided.")
-    }
-}
+
 mavenPublishing {
-    publishToMavenCentral()
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL,automaticRelease = false)
     signAllPublications()
 
     coordinates(
-        groupId = "com.flutterjunction.formflow",
+        groupId = "com.flutterjunction",
         artifactId = "formflow-compose",
         version = project.version.toString()
     )
@@ -71,6 +49,7 @@ mavenPublishing {
         name.set("FormFlow Compose")
         description.set("Jetpack Compose adapters for FormFlow.")
         url.set("https://github.com/nbnD/formflow")
+
         licenses {
             license {
                 name.set("MIT License")
@@ -81,7 +60,7 @@ mavenPublishing {
         developers {
             developer {
                 id.set("nbnD")
-                name.set("Nabin Khanal")
+                name.set("Nabin Dhakal")
             }
         }
     }
