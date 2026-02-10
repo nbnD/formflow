@@ -21,18 +21,15 @@ jobs:
       - name: Build + API check
         run: ./gradlew clean build apiCheck --no-daemon
 
-#      - name: Publish (Central Portal)
-#        env:
-#          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
-#          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}
-#          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-#          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
-#        run: ./gradlew publishAllPublicationsToMavenCentralRepository --no-daemon
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.SIGNING_KEY }}" | base64 --decode > /tmp/secring.gpg
+
       - name: Publish (Central Portal)
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.CENTRAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.CENTRAL_PASSWORD }}
-        # These are the specific names the plugin looks for:
-          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.SIGNING_KEY }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_signing_keyId: ${{ secrets.SIGNING_KEY_ID }}
+          ORG_GRADLE_PROJECT_signing_password: ${{ secrets.SIGNING_PASSWORD }}
+          ORG_GRADLE_PROJECT_signing_secretKeyRingFile: /tmp/secring.gpg
         run: ./gradlew publishAllPublicationsToMavenCentralRepository --no-daemon
