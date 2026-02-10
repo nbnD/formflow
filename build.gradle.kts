@@ -12,7 +12,7 @@ plugins {
 allprojects {
     // Maven Central coordinates (namespace verified)
     group = "com.flutterjunction"
-    version = "0.1.3-alpha"
+    version = "0.1.4-alpha"
 }
 
 subprojects {
