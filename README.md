@@ -172,3 +172,27 @@ FormFlow is built on one rule:
 - Forms are state machines, not event soup.
 
 If you agree with that — this library is for you.
+
+## Validation timing (Change / Blur / Submit)
+
+Each field declares when it should validate via `validateOn`:
+
+- **Change** → validate on every value update (reactive / live validation)
+- **Blur** → validate when the field loses focus
+- **Submit** → validate only during a submit attempt
+
+### Recommended UX (less annoying)
+A common pattern is:
+
+- While typing: validate, but **don’t show errors until** the user has interacted
+- On blur: mark the field as touched and show errors if invalid
+- On submit: validate everything and show all errors
+
+In FormFlow you typically gate error display like:
+
+- show field errors when `field.touched == true`
+- or after first submit: `form.submittedOnce == true`
+
+Server errors (e.g. “email already exists”) are stored separately from client errors.
+By default, you usually clear server errors when the user edits the field again.
+
